@@ -16,15 +16,10 @@
 
     <script>
     
-    const twoNumbersEqual = (k, arr) => {
-            const totalsArr = [];
-            arr.forEach((int, i) => {                
-                arr.forEach((intA, iA) => {
-                    if(i === iA) return;
-                    totalsArr.push(int + intA);
-                })
-            })
-            return totalsArr.some(sum => sum === k);
+    const twoNumbersEqual = (k, arr) => {            
+        return arr.some((int, i) => {                
+            return arr.some((intA, iA) => ( (int + intA == k) && (!i == iA) ))
+        })
     }
 
     console.log(twoNumbersEqual(17, [10, 15, 3, 6]));
