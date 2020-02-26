@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>problem 1</title>
+</head>
+<body>
+<p> Given a list of numbers and a number k, return whether any two numbers from the list add up to k.</br></br>
+
+    For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.</br></br> 
+
+    Bonus: Can you do this in one pass?
+</p>
+<!-- 
+    for each integer in array, loop through the other intergers and if they total the given result, return true. 
+
+ -->
+
+    <script>
+    
+    const twoNumbersEqual = (k, arr) => {
+            const totalsArr = [];
+            arr.forEach((int, i) => {                
+                arr.forEach((intA, iA) => {
+                    if(i === iA) return;
+                    totalsArr.push(int + intA);
+                })
+            })
+            return totalsArr.some(sum => sum === k);
+    }
+
+    console.log(twoNumbersEqual(17, [10, 15, 3, 6]));
+    
+    </script>
+
+</body>
+</html>
