@@ -16,11 +16,25 @@
 
     <script>
 
-    const productOfArray = (arr) => {            
-        console.log(arr);
+    const productOfArray = (arr) => {  
+        const total = arr.reduce((a,b) => a*b);
+        return arr.map(i => total/i);
+    }
+
+    const withoutDivision = (arr) => {
+        return arr.map((i, index) => {
+            return arr.reduce((a, b, indexA) => {
+                if(indexA == index) b = 1;
+                return a*b 
+            } ,1)
+        })
     }
 
     console.log(productOfArray([3, 2, 1]));
+    console.log(productOfArray([1, 2, 3, 4, 5]));
+
+    console.log(withoutDivision([3, 2, 1]));
+    console.log(withoutDivision([1, 2, 3, 4, 5]));
     
     </script>
 
